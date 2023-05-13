@@ -17,7 +17,7 @@ body {
   background-color: black;
   color: white;
 }
-tton {
+button {
   font: inherit;
   border: none;
   cursor: pointer;
