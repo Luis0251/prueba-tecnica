@@ -1,7 +1,7 @@
 import { TaskItems } from "./TaskItems"
 import PropTypes from "prop-types";
 
-export const TaskList = ({tasks, deleteTask, ToggleTask}) => {
+export const TaskList = ({tasks, deleteTask, ToggleTask,enterEditMode}) => {
   return (
     <ul className="flex flex-col gap-3">
         {
@@ -11,6 +11,7 @@ export const TaskList = ({tasks, deleteTask, ToggleTask}) => {
             task={task}
             deleteTask={deleteTask}
             ToggleTask={ToggleTask}
+            enterEditMode={enterEditMode}
             />
           ))
         }
@@ -21,5 +22,6 @@ export const TaskList = ({tasks, deleteTask, ToggleTask}) => {
 TaskList.propTypes = {
   tasks: PropTypes.array.isRequired,
   deleteTask:PropTypes.func.isRequired,
-  ToggleTask:PropTypes.func.isRequired
+  ToggleTask:PropTypes.func.isRequired,
+  enterEditMode:PropTypes.func.isRequired
 };
