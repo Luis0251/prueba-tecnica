@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import {PencilIcon,TrashIcon} from '@heroicons/react/24/solid'
 import { useState } from "react";
-export const TaskItems = ({task}) => {
+export const TaskItems = ({task, deleteTask, ToggleTask}) => {
  const [isChecked, setIsChecked] = useState(task.checked);
  const handleCheckboxChange = () =>{
   setIsChecked(!isChecked)
+  ToggleTask(task.name)
  }
+ const Delete = ()=>deleteTask(task.id);
   return (
     <li className="flex justify-between gap-1 text-base border border-solid border-opacity-80 rounded-lg bg-white">
       <div className="bg-gray-50 flex border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-3 gap-2">
@@ -24,7 +26,7 @@ export const TaskItems = ({task}) => {
           //onClick
           ><PencilIcon width={15} height={15}/></button>
           <button className="bg-red-500 text-white p-1 rounded-md ml-2" aria-label={`Update ${task.name} task`}
-          //onClick
+          onClick={Delete}
           ><TrashIcon width={15} height={15}/></button>
         </div>
       </div>
@@ -33,4 +35,6 @@ export const TaskItems = ({task}) => {
 }
 TaskItems.propTypes = {
   task: PropTypes.object.isRequired,
+  deleteTask:PropTypes.func.isRequired,
+  ToggleTask:PropTypes.func.isRequired
 };
