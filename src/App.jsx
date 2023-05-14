@@ -29,12 +29,11 @@ function App() {
   //TODO: set focus back to origial
  }
   return (
-    <div className="mx-4vw max-w-screen-lg sm:mx-auto">
-     <div className="grid gap-y-8 md:gap-y-[3.5vmax] text-center">
-      <header><h1 className="text-3xl text-center ">My Task List</h1></header>
+    <div className="bg-black h-screen p-3">
+     <div className="rounded mx-auto max-w-[750px] min-h-[550px] shadow-2xl bg-gradient-to-r from-cyan-200 to-cyan-400">
+      <header><h1 className="text-3xl text-center font-semibold ">My Task List</h1></header>
       {
-        isEditing && (
-
+    isEditing && (
           <EditForm editedTask={editedTask} upDateTask={upDateTask}/>
         )
       }

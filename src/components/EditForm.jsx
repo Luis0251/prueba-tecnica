@@ -9,33 +9,29 @@ export const EditForm = ({editedTask, upDateTask}) => {
         e.preventDefault();
        // upDateTask()
     }
+    const handleUpdateName = (e)=> setUpDateTaskName(e.target.value)
   return (
     <div role='dialog' 
-    aria-label='editTask'
+    aria-labelledby='editTask'
     //onClick={}
     >
-      <form className="flex gap-2 text-base text-left" onSubmit={handleSubmit}>
-          <div className="flex gap-2">
-              <div className='flex flex-col'>
-              <label htmlFor="editTask" className="block mb-2 text-sm font-medium text-white ">Typing</label>
-              <input type="text"
-              id="editTask"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 "
-              value={upDateTask}
-              onInput={(e)=> setUpDateTaskName(e.target.value)}
-              required
-              autoFocus
-              maxLength={60}
-              placeholder="Update task"
-               />
-               </div>
-               <button className="flex items-center justify-center p-0.5 mb-2  text-sm font-medium  rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500     "
-               aria-label={`Confirm Edited to task ${upDateTaskName}`}
-                type="submit">
-                <CheckIcon  strokewidth={2} height={12} width={12}/>
-                </button>
-          </div>
-      </form>
+      <form className="p-3 flex" onSubmit={handleSubmit}>
+            <div className='flex w-[90%]'>
+            <input type="text"
+            id="upDateTask"
+            className="p-3 focus:outline-none border-slate-400 text-black w-full"
+            value={upDateTask}
+            onInput={handleUpdateName}
+            required
+            autoFocus
+            maxLength={60} 
+            placeholder="Update task"
+             />
+             </div>
+             <button className="flex items-center text-white justify-center w-[50px] h-[50px] rounded-lg  bg-gradient-to-br from-purple-600 to-blue-500" 
+             aria-label={`Confirm Edited to task ${upDateTaskName}`}
+              type="submit"><CheckIcon  strokewidth={2} height={12} width={12}/></button>
+    </form>
     </div>
   )
 }

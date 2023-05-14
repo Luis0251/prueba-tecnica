@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const TaskList = ({tasks, deleteTask, ToggleTask,enterEditMode}) => {
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-3 px-2">
         {
           tasks.sort((a,b)=>b.id - a.id).map(task =>(
             <TaskItems 

@@ -13,26 +13,24 @@ export const CustomForm = ({addTask}) => {
         });
         setTask("");
     }
+    const handleChange = (e)=> setTask(e.target.value);
   return (
-    <form className="flex gap-2 text-base text-left" onSubmit={handleSubmit}>
-        <div className="flex gap-2">
-            <div className='flex flex-col'>
-            <label htmlFor="" className="block mb-2 text-sm font-medium text-white ">Typing</label>
+    <form className="p-3 flex" onSubmit={handleSubmit}>
+            <div className='flex w-[90%]'>
             <input type="text"
             id="task"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 "
+            className="p-3 focus:outline-none border-slate-400 text-black w-full"
             value={task}
-            onInput={(e)=> setTask(e.target.value)}
+            onInput={handleChange}
             required
             autoFocus
             maxLength={60} 
             placeholder="Enter task"
              />
              </div>
-             <button className="flex items-center justify-center p-0.5 mb-2  text-sm font-medium  rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500     " 
+             <button className="flex items-center text-white justify-center w-[50px] h-[50px] rounded-lg  bg-gradient-to-br from-purple-600 to-blue-500" 
              aria-label="add task"
-              type="submit"><PlusIcon  className='h-6 w-6 text-white'/></button>
-        </div>
+              type="submit"><PlusIcon  className='h-6 w-6'/></button>
     </form>
   )
 }
