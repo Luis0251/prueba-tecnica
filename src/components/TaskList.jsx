@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 export const TaskList = ({tasks}) => {
   return (
-    <ul className="">
+    <ul className="flex flex-col gap-3">
         {
-          tasks.map(task =>(
+          tasks.sort((a,b)=>b.id - a.id).map(task =>(
             <TaskItems 
             key={task.id}
             task={task}
